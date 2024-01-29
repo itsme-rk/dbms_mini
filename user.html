@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="memberRegistrationApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Registration Form</title>
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #ff3c00;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff3c00;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #ff3c00;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            background-color: #ff3c00;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d13200;
+        }
+
+        input[type="file"] {
+            border: none;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        input:invalid,
+        select:invalid,
+        textarea:invalid {
+            border: 2px solid #ff3c00;
+        }
+
+        ::placeholder {
+            color: #666;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="memberRegistrationController">
+    <h2>Member Registration Form</h2>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label for="memberId">Member ID:</label>
+        <input type="text" id="memberId" name="memberId" ng-model="memberId" required><br>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" ng-model="fullName" placeholder="First Middle Last" required><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" ng-model="age" required><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" ng-model="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ng-model="password" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ng-model="email" required><br>
+
+        <label for="contactId">Contact ID:</label>
+        <input type="text" id="contactId" name="contactId" ng-model="contactId" required><br>
+
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" ng-model="image"><br>
+
+        <button type="submit" ng-click="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        var app = angular.module('memberRegistrationApp', []);
+
+        app.controller('memberRegistrationController', function ($scope) {
+            $scope.submitForm = function () {
+                // Handle form submission logic here
+                console.log('Form submitted:', $scope.memberId, $scope.fullName, $scope.age, $scope.gender, $scope.password, $scope.email, $scope.contactId, $scope.image);
+            };
+        });
+    </script>
+</body>
+
+</html>
